@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>מדבקת שפה</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="shell">
+    <header data-sticker-private>
+      <div class="brand"><span class="sticker" aria-hidden="true"></span>מדבקה דיגיטלית <small class="version">0.5.10 · בטא</small></div>
+      <h1>האתר בשפה שלך.</h1>
+      <p class="lead">בחר שפות ולחץ "תרגם". האתר עצמו לא משתנה.</p>
+    </header>
+
+    <section class="language-panel card" data-sticker-private aria-label="בחירת שפות">
+      <div class="language-grid">
+        <label for="source">שפת האתר
+          <select id="source"></select>
+        </label>
+        <label for="language">השפה שלי
+          <select id="language"></select>
+        </label>
+      </div>
+      <p id="coverage" class="coverage"></p>
+    </section>
+
+    <section class="activation" data-sticker-private>
+      <label class="native-toggle"><input type="checkbox" id="native-mode" checked> תרגום מקומי מורחב</label>
+      <button id="enable" class="primary">תרגם את האתר</button>
+      <button id="disable" class="secondary">הסר תרגום</button>
+      <p id="status" class="status" role="status">מוכן.</p>
+      <button id="screen-fix" class="secondary" hidden>✏️ תיקון על המסך</button>
+      <button id="open-feedback" class="secondary feedback-btn">💬 משוב: תרגום, שימוש ונראות</button>
+    </section>
+
+    <details data-sticker-private>
+      <summary>אפשרויות מתקדמות</summary>
+      <label for="native-target">קוד שפת יעד אחרת (רשות)</label>
+      <input id="native-target" type="text" maxlength="35" placeholder="למשל hi" dir="ltr">
+      <label for="pack">הוספת חבילת שפה מקומית</label>
+      <input type="file" id="pack" accept=".json,application/json">
+      <p id="pack-status" role="status"></p>
+      <div id="core-join"><label for="core-code">משתמש יסוד: קוד הצטרפות</label>
+      <input id="core-code" type="text" maxlength="30" placeholder="LS00-XXXX-XXXX-XXXX" dir="ltr" autocomplete="off" spellcheck="false">
+      <button id="core-ok" class="secondary">הצטרפות</button></div>
+      <p id="core-status" role="status"></p>
+      <button id="fix-export" class="secondary">ייצוא התיקונים שלי לקובץ</button>
+      <p id="fix-status" role="status"></p>
+    </details>
+
+    <footer data-sticker-private>
+      <div class="trust-line"><span>עיבוד מקומי</span><span>ללא שינוי המקור</span><span>Alt מציג מקור</span><span>פינה מתקלפת מכבה</span><span><a href="welcome.html" target="_blank" style="color:inherit">איך זה עובד?</a></span></div>
+      <p class="micro">קוד פתוח (MPL 2.0). השם "מדבקה דיגיטלית / Language Sticker" שמור. את התרגום אפשר להסיר בכל רגע.</p>
+    </footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="fixes.js"></script>
+  <script src="nostick.js"></script>
+  <script src="mozilla-pack.js"></script>
+  <script src="aosp-pack.js"></script>
+  <script src="ai-pack.js"></script>
+  <script src="libreoffice-pack.js"></script>
+  <script src="dictionary.js"></script>
+  <script src="overlay.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

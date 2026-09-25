@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>שיפור תרגום — מדבקה דיגיטלית</title>
+<link rel="stylesheet" href="theme.css">
+<style>
+main{max-width:560px;margin:0 auto;padding:14px 14px 32px}
+h1{font-size:20px;margin:12px 0 4px}
+.mic{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:16px;border:2px dashed var(--fold);background:var(--note);color:var(--text);font:600 16px system-ui,-apple-system,sans-serif;cursor:pointer;margin-top:10px}
+.mic.on{border-style:solid;background:var(--lime);color:var(--on-lime)}
+.dot{width:12px;height:12px;border-radius:50%;background:#c0392b;display:none}.mic.on .dot{display:inline-block;animation:b 1s infinite}
+@keyframes b{50%{opacity:.25}}
+.step{font-size:13px;color:var(--muted);margin:16px 0 4px}
+.spot{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px 10px 30px;margin-top:8px;font-size:14px}
+.spot .orig{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.spot .shown{margin-top:6px;font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:6px}
+.spot .shown b{color:var(--text);font-weight:600}
+.spot .x{position:absolute;left:6px;top:6px;border:0;background:transparent;color:var(--muted);font-size:16px;cursor:pointer;padding:2px 6px}
+.empty{font-size:14px;color:var(--muted);border:1px dashed var(--line);border-radius:12px;padding:12px;margin-top:8px}
+.consent{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:14px}
+.consent.show{display:flex}.consent .card{max-width:420px}
+.row{display:flex;gap:8px}.row button{flex:1}
+details{margin-top:10px;font-size:14px;color:var(--muted)}summary{cursor:pointer}
+.page{word-break:break-all}
+.tabs{display:flex;gap:6px;margin-top:10px}.tabs button{flex:1;padding:10px 6px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--text);font:600 14px system-ui,-apple-system,sans-serif;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--lime);border-color:var(--lime);color:var(--on-lime)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.chips button{padding:7px 12px;border-radius:20px;border:1px solid var(--line);background:transparent;color:var(--text);font:14px system-ui,-apple-system,sans-serif;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--note);border-color:var(--fold);font-weight:600}
+@media (prefers-reduced-motion:reduce){.mic.on .dot{animation:none}}
+</style></head>
+<body>
+<main>
+  <div class="brand"><span class="sticker" aria-hidden="true"></span>מדבקה דיגיטלית <small>שיפור תרגום</small></div>
+  <h1 id="title">מה לא תורגם טוב?</h1>
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" id="mode-words" aria-selected="true">🔤 מילים והקשר</button>
+    <button type="button" role="tab" id="mode-use" aria-selected="false">🧭 שימוש ונראות</button>
+  </div>
+
+  <div id="use-kind" hidden>
+    <p class="step">על מה?</p>
+    <div class="chips" id="kinds">
+      <button type="button" aria-pressed="false" data-kind="נראות">👁 נראות</button>
+      <button type="button" aria-pressed="false" data-kind="תפעול">🖱 תפעול</button>
+      <button type="button" aria-pressed="false" data-kind="נגישות">♿ נגישות</button>
+      <button type="button" aria-pressed="false" data-kind="מהירות">⚡ מהירות</button>
+      <button type="button" aria-pressed="false" data-kind="אחר">✳️ אחר</button>
+    </div>
+  </div>
+  <p class="step" id="step1">1 · המקום בדף (נקלט לבד)</p>
+  <div id="quick" class="empty" hidden>
+    <div>⚡ <b>סימון מהיר באתר הזה?</b> קליק ימני יספיק, בלי לחיצה נוספת. רק ב-<b id="quick-site"></b>, לא בשום אתר אחר.</div>
+    <div class="row" style="margin-top:8px"><button type="button" id="quick-yes" class="primary">לאפשר באתר הזה</button><button type="button" id="quick-no" class="secondary" style="margin-top:0">לא עכשיו</button></div>
+  </div>
+  <p id="quick-on" class="micro" hidden>⚡ סימון מהיר פעיל באתר הזה · <a href="#" id="quick-off">ביטול</a></p>
+  <div id="spots"></div>
+  <button type="button" id="pick" class="secondary">👆 סמן עוד מקום בדף</button>
+
+  <p class="step" id="step2">2 · ספרו מה לא טוב ומה הכוונה</p>
+  <button type="button" id="mic" class="mic" aria-pressed="false"><span class="dot" aria-hidden="true"></span><span id="mic-label">🎤 לחצו ודברו</span></button>
+  <textarea id="what" rows="3" maxlength="600" dir="auto" placeholder="למשל: הפסקה הזו לא תורגמה בכלל"></textarea>
+  <p id="mic-note" class="micro"></p>
+
+  <details id="better-box"><summary>יש לכם תרגום מדויק? (רשות)</summary>
+    <input type="text" id="better" maxlength="180" dir="auto" placeholder="התרגום הנכון">
+  </details>
+
+  <label style="display:flex;gap:6px;align-items:flex-start;margin-top:12px"><input type="checkbox" id="site-ok" checked> <span>לצרף את כתובת הדף: <b id="site-name" class="page" style="font-weight:600"></b></span></label>
+  <p class="micro">המשוב נשלח רק לצוות המדבקה, עם מספר משתמש אנונימי. אל תכתבו או תגידו שמות, מספרים או פרטים אישיים.</p>
+
+  <button type="button" id="send" class="primary" style="margin-top:14px">שליחה לפרויקט</button>
+  <button type="button" id="save" class="secondary">רק לשמור אצלי</button>
+  <p id="status" class="status" role="status">מוכן.</p>
+</main>
+
+<div class="consent" id="consent" role="dialog" aria-modal="true" aria-labelledby="c-title">
+  <div class="card">
+    <h2 id="c-title" style="margin:0 0 8px;font-size:19px">הקלטה בקול</h2>
+    <p style="margin:0 0 10px">כדי להפוך את הדיבור לטקסט, הקול שלכם נשלח לשירות התמלול של הדפדפן (גוגל, אפל או מיקרוסופט). הקלטה רק כשהכפתור דלוק. שום קובץ קול לא נשמר.</p>
+    <p class="micro">בפעם הראשונה תיפתח לשונית קטנה לאישור המיקרופון.</p>
+    <div class="row" style="margin-top:14px"><button type="button" id="c-yes" class="primary">מאשר/ת</button><button type="button" id="c-no" class="secondary" style="margin-top:0">אקליד בעצמי</button></div>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="fixes.js"></script>
+<script src="feedback.js"></script>
+</body></html>

@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: MPL-2.0
+// Feedback goes privately to the project owner's Google Form (no account needed for users).
+// Nothing is sent without the user's click on "send".
+globalThis.LanguageStickerConfig=Object.freeze({
+  feedbackRepo:'elikob127-star/language-sticker',
+  feedbackForm:'https://docs.google.com/forms/d/e/1FAIpQLSehAoW-t2wYrDlJdKpxX4Qfn5JzQge5Qx5pA2RUlO1nssH2ew/formResponse',
+  // 0.3.56 / 0.5.9: core users (on-screen correction). Fingerprints of E's join codes only;
+  // the codes themselves are kept privately by E. A correction counts as confirmed when 3 members send the same one.
+  coreCodes:Object.freeze({
+'01':'9648db830e1fe200a6af3fa7d8fa8e331068ced7fc610493bc444418442be37b',
+'02':'a64206f807e93fd0d672def41ec640f18f4cbfc333863960d8eea8e0197c59ce',
+'03':'3a71af11d0baa80eebc3c6a779a668f20ee2f970ed55b89f422a8c6143959133',
+'04':'02e4caa1632c0d7a69f867e10bdc194b3b274b34eb05a0ced6504dee29d02646',
+'05':'960139111ab6fdbd9a4f00d5f9bc1738cd7e9829b4036600cc31dbdd8c5befd9',
+'06':'09e5d28e01c0c606b9ee8dee660a5a2bb303bcbd65a8960523bd36245a924f36',
+'07':'a8233100fff8001685b3beb9c40d7033abf551890aec2a672d9a7ee63cb61bf9',
+'08':'45629e1127d29727d2d6a3977d80d88597ebf80f0c84e59fac89fd196a3f1520',
+'09':'2017b8ddef2aa24b47039e422b2d5fd4455e5baded0402e15f410194d7cd6867',
+'10':'85bee19d5f9458d87ce9ceaa75e50437b6e90ab67f8e2312f7549520a289868e',
+'11':'34a036e4839a07020379e840fc296671e742ca4f4fd2c97cbd6522b85f64195e',
+'12':'fda39e820846695aa50c68d8ae0e5f6f5b82aeb85e5b083fc79f93a0b09537d1',
+'13':'13e62f2490c5ca1e8540b6656a97af7b6362830ce0d673a2d0986848a5459163',
+'14':'694cac064a4f978536a6f293ae9c1c1d2f8085d65834c6e0de6da94c8fc95dff',
+'15':'8b06a50eed492ca31ce81c3bb34c05c78a63f2e3f76a8bbb184dc223d30bb087',
+'16':'c57f18de22a63d730f0b0208c0b5b5cb607b4489a12526db33ef3b9a3aa36247',
+'17':'23a122e2a6a43080e2674c7995a9f39d970a64cd8853241b1b0109947a1dac80',
+'18':'67d358052cdcdf68fe4ea3af5e97e0cef7025b3e447228ad5130149099e711cc',
+'19':'522bdef838ccb07a7afca0203a8546dc4c6c72fb269b3a6293664556e179b12e',
+'20':'4f8321c03774243387736cd868f3156ed146a4c1cd6109b93ecaba64128560c9',
+'21':'54bcb8a22f5843aa7bd85b7029e2a81e9b6e3667a9f090e5cac4ba360cbfcfa5',
+'22':'23aa525c38b433cdc615f148cb038420ea70517b821b780b44a8f0859609926e',
+'23':'8a2e6125b0ac875a270a6f56c1e3f7698a28ad2d51fdd32d0dec4f750c72074a',
+'24':'43e3e8f68876e7a63a70fe48fab2812a10e09572a9e47d7d57692b276e7fd6d6',
+'25':'03c15522c8773303a070bcdc577fab07d6e98898ff3cd0496e45109275ca7dc2',
+'26':'5ad8e388652dad8549b4565f7e39bdd4e43472424f5d01113369f216c3ce18a2',
+'27':'fea7908b68bb31daeed62378397ecb187972d02f9400d2b8be5e0fc16054eadd',
+'28':'c824777e189cfba89c872c809f788d4d75f3ffe3e1b17b103c0dc8994f1bffaa',
+'29':'d68dad84e2f1d40ea8eb6be652eeaee25ff67d11e08e94bbb261cd854d48516c',
+'30':'0f6822b6a9c05c7033a501f752ec52a4b8609cf5259d916d83957f83aa220e4b'
+  }),
+  confirmAt:3,
+  fields:{user:'entry.188392661',version:'entry.20282990',pair:'entry.571097966',text:'entry.720196930',what:'entry.2123783159',better:'entry.1039416579',site:'entry.373901465'}
+});

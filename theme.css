@@ -1,0 +1,17 @@
+:root{color-scheme:light dark;--bg:#fbfaf6;--panel:#ffffff;--text:#1c2b22;--muted:#5d6b61;--line:#e2e5da;--field:#ffffff;--lime:#c8f07a;--on-lime:#1d3a12;--fold:#8fb84a;--note:#f3f7e8;--focus:#3b6d11}
+@media (prefers-color-scheme:dark){:root{--bg:#141c18;--panel:#1c2722;--text:#eef3ea;--muted:#a8b6ac;--line:#33443b;--field:#18221d;--lime:#d7f8a3;--on-lime:#1d3a12;--fold:#8fb84a;--note:#1f2d25;--focus:#d7f8a3}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+h1{font-size:26px;line-height:1.2;margin:18px 0 8px;font-weight:700}.lead{color:var(--muted);margin:0 0 16px}
+label{font-size:13px;color:var(--muted);display:block}
+select,input[type=text],textarea{width:100%;margin-top:6px;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--field);color:var(--text);font:15px system-ui,-apple-system,sans-serif;min-height:42px}
+textarea{resize:vertical}
+.primary,.secondary{width:100%;font:600 15px system-ui,-apple-system,sans-serif;padding:12px;border-radius:12px;cursor:pointer}
+.primary{border:1px solid var(--lime);background:var(--lime);color:var(--on-lime)}
+.secondary{background:transparent;border:1px solid var(--line);color:var(--text);margin-top:8px}
+.primary:disabled,.secondary:disabled{opacity:.55;cursor:not-allowed}
+.status{font-size:13px;color:var(--muted);padding:10px 12px;border-inline-start:3px solid var(--fold);background:var(--note);border-radius:0 8px 8px 0;margin:10px 0 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
+.sticker{display:inline-block;width:28px;height:28px;border-radius:7px;background:var(--lime);clip-path:polygon(0 0,100% 0,100% 100%,35% 100%,0 65%);vertical-align:middle}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600}.brand small{font-weight:400;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:2px 8px;font-size:11px}
+.micro{font-size:11px;color:var(--muted);margin:6px 0 0}
+button:focus-visible,select:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
