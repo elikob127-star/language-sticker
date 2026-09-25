@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "מדבקה דיגיטלית — Language Sticker",
-  "version": "0.5.10",
-  "description": "BETA (test stage). Translates website menus and labels on your screen, locally. Nothing leaves your computer unless you choose to send feedback.",
+  "version": "0.5.13",
+  "description": "BETA (test stage). Translates website menus and labels on screen, locally. Nothing leaves your computer unless you send feedback.",
   "permissions": [
     "activeTab",
     "scripting",
@@ -24,7 +24,7 @@
   "background": {
     "service_worker": "background.js"
   },
-  "version_name": "0.5.10 beta — test stage",
+  "version_name": "0.5.13 beta — test stage",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
